@@ -57,12 +57,12 @@ int main() {
         }
         
         //SELECIONAR ATACANTE
-        int idxAtacante, idxDefensor;
+        int idAtacante, idDefensor;
         printf("\nSelecione o territorio ATACANTE (numero): ");
-        if (scanf("%d", &idxAtacante) != 1) continue;
-        idxAtacante--;
+        if (scanf("%d", &idAtacante) != 1) continue;
+        idAtacante--;
         
-        if (idxAtacante < 0 || idxAtacante >= quantidade) {
+        if (idAtacante < 0 || idAtacante >= quantidade) {
             printf("Territorio invalido!\n");
             limparBuffer();
             continue;
@@ -70,10 +70,10 @@ int main() {
         
         //SELECIONAR DEFENSOR
         printf("Selecione o territorio DEFENSOR (numero): ");
-        if (scanf("%d", &idxDefensor) != 1) continue;
-        idxDefensor--;
+        if (scanf("%d", &idDefensor) != 1) continue;
+        idDefensor--;
         
-        if (idxDefensor < 0 || idxDefensor >= quantidade) {
+        if (idDefensor < 0 || idDefensor >= quantidade) {
             printf("Territorio invalido!\n");
             limparBuffer();
             continue;
@@ -81,17 +81,17 @@ int main() {
         limparBuffer();
         
         //VALIDAR ATAQUE
-        if (idxAtacante == idxDefensor) {
+        if (idAtacante == idDefensor) {
             printf("Nao pode atacar o proprio territorio!\n");
             continue;
         }
         
-        if (strcmp(mapa[idxAtacante].cor, mapa[idxDefensor].cor) == 0) {
+        if (strcmp(mapa[idAtacante].cor, mapa[idDefensor].cor) == 0) {
             printf("Nao pode ataque territorio da mesma cor!\n");
             continue;
         }
         
-        if (mapa[idxAtacante].tropas <= 1) {
+        if (mapa[idAtacante].tropas <= 1) {
             printf("Atacante precisa de pelo menos 2 tropas para atacar!\n");
             continue;
         }
@@ -99,11 +99,11 @@ int main() {
         //REALIZAR ATAQUE
         printf("\n=== BATALHA ===\n");
         printf("%s (%s) ataca %s (%s)\n", 
-                mapa[idxAtacante].nome, mapa[idxAtacante].cor,
-                mapa[idxDefensor].nome, mapa[idxDefensor].cor);
+                mapa[idAtacante].nome, mapa[idAtacante].cor,
+                mapa[idDefensor].nome, mapa[idDefensor].cor);
         
         //ACESSO PONTEIROS NA CHAMADA DA FUNÇÃO
-        atacar(&mapa[idxAtacante], &mapa[idxDefensor]);
+        atacar(&mapa[idAtacante], &mapa[idDefensor]);
         
         //EXIBIR RESULTADO
         exibirMapa(mapa, quantidade);
