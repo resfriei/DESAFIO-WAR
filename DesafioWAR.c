@@ -137,8 +137,8 @@ int main() {
 
         // VERIFICAR MISSÃO AO FINAL DO TURNO
         if (verificarMissao(missaoJogador, mapa, quantidade)) {
-            printf("\n🎉 PARABENS! Voce cumpriu sua missao: %s\n", missaoJogador);
-            printf("🏆 VITORIA DO JOGADOR!\n");
+            printf("\nPARABENS! Voce cumpriu sua missao: %s\n", missaoJogador);
+            printf("VITORIA DO JOGADOR!\n");
             break;
         }
         
